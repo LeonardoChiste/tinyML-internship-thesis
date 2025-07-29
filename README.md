@@ -28,3 +28,7 @@ https://studio.edgeimpulse.com/studio/752142
 * Download the library .zip from the /sv_helloworld folder
 * On Arduino IDE: Schetch -> Include library -> Add .ZIP library...
 * Download the .ino file, compile and upload
+
+###D-vector speaker verification
+Not yet finished
+
