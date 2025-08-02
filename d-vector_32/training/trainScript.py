@@ -211,4 +211,5 @@ with open("mfcc_matrices.h", "w") as f:
     f.write(format_array_c("melFilterBank", mel_filters))
     f.write(format_array_c("dctMatrix", dct_matrix))
 
+
 print("[✅] MFCC matrices exported to mfcc_matrices.h")
