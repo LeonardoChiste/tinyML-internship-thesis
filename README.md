@@ -29,6 +29,11 @@ https://studio.edgeimpulse.com/studio/752142
 * On Arduino IDE: Schetch -> Include library -> Add .ZIP library...
 * Download the .ino file, compile and upload
 
-###D-vector speaker verification
-Not yet finished
+### D-vector speaker verification
+Deployment
+* Hardware requirements: Arduino Nano 33 BLE
+* Software requirements: Arduino ide with driver library for the board: Arduino Mbed os nano board 
+* Download the tflite micro library .zip from https://github.com/tensorflow/tflite-micro-arduino-examples
+* On Arduino IDE: Schetch -> Include library -> Add .ZIP library...
+* Open the svModel folder in Arduino IDE and upload the code
 
