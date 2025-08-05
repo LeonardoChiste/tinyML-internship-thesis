@@ -115,7 +115,6 @@ def build_dvector_model(input_shape=(32, 13, 1), embedding_dim=32):
     # d-vector output
     d_vector = Dense(embedding_dim, activation=None, name="d_vector")(x)
 
-    # Optional normalization (helps with cosine similarity)
     norm_dvector = tf.keras.layers.Lambda(lambda x: tf.math.l2_normalize(x, axis=1))(d_vector)
 
     model = Model(inputs=inputs, outputs=norm_dvector, name="dvector_model")
@@ -179,9 +178,8 @@ tflite_model = converter.convert()
 with open(f"{MODEL_NAME}.tflite", "wb") as f:
     f.write(tflite_model)
 
-# Convert to Arduino .cc file
 print("[INFO] Converting to Arduino C++ array using xxd...")
-subprocess.run(f"xxd -i {MODEL_NAME}.tflite > {MODEL_NAME}_model.cc", shell=True)
+subprocess.run(f"xxd -i {MODEL_NAME}.tflite > {MODEL_NAME}_model.h", shell=True)
 
 print(f"[✅] Done! You can now use `{MODEL_NAME}_model.cc` in your Arduino sketch.")
 
@@ -205,7 +203,6 @@ def format_array_c(name, array):
     lines.append("};\n")
     return '\n'.join(lines)
 
-# Save to file
 with open("mfcc_matrices.h", "w") as f:
     f.write("// Auto-generated MFCC matrices\n\n")
     f.write(format_array_c("melFilterBank", mel_filters))
@@ -213,3 +210,4 @@ with open("mfcc_matrices.h", "w") as f:
 
 
 print("[✅] MFCC matrices exported to mfcc_matrices.h")
+
