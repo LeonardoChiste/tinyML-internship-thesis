@@ -26,7 +26,7 @@ https://studio.edgeimpulse.com/studio/752142
 
 ### D-vector 32 speaker verification
 The raw data samples are normalized, passed through a mfcc function and a CNN that produces a d-vector of 32 float values, which is compared with a stored d-vector to determine if I am speaking.
-The training script is included in the /training folder. The data set is composed of about 560 1 second samples from 8 speakers(including me) and noise. 
+The training script is included in the /training folder. The data set is composed of about 600 1 second samples from 6 speakers(including me) and noise. 
 
 * Download the tflite micro library .zip from https://github.com/tensorflow/tflite-micro-arduino-examples
 * On Arduino IDE: Schetch -> Include library -> Add .ZIP library...
