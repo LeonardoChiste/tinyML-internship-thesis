@@ -13,7 +13,7 @@ SR = 16000
 N_MFCC = 13
 MFCC_HOP = 512
 AUDIO_DURATION = 1  # seconds
-DATA_DIR = "16000_pcm_speeches"
+DATA_DIR = "speech_data"
 MODEL_NAME = "dvector_model"
 N_FRAMES = 32
 
@@ -210,4 +210,5 @@ with open("mfcc_matrices.h", "w") as f:
 
 
 print("[✅] MFCC matrices exported to mfcc_matrices.h")
+
 
