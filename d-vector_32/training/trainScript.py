@@ -166,11 +166,11 @@ d_vector_model = Model(inputs=base_model.input, outputs=base_model.get_layer("d_
 # Quantize & convert
 converter = tf.lite.TFLiteConverter.from_keras_model(d_vector_model)
 converter.optimizations = [tf.lite.Optimize.DEFAULT]
-converter.representative_dataset = representative_dataset
+converter.representative_dataset = representative_dataset                #the representative dataset is not created properly
 converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS_INT8]
-converter.target_spec.supported_types = [tf.int8]
-converter.inference_input_type = tf.int8
-converter.inference_output_type = tf.int8
+#converter.target_spec.supported_types = [tf.int8]
+#converter.inference_input_type = tf.int8
+#converter.inference_output_type = tf.int8
 
 
 tflite_model = converter.convert()
@@ -210,5 +210,6 @@ with open("mfcc_matrices.h", "w") as f:
 
 
 print("[✅] MFCC matrices exported to mfcc_matrices.h")
+
 
 
